@@ -1,4 +1,4 @@
-export const livres = [
+const livres = [
     {
         titre: 'Québec au cinéma : Ce que nos films disent de nous',
         auteur: 'Michel Coulombe',
@@ -518,3 +518,4 @@ export const livres = [
         categorie: 'Savoir et science'
     }
 ];
+export default livres;
