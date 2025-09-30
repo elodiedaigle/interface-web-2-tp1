@@ -4,13 +4,63 @@
 // Devis : Chaque tuile d’un livre doit afficher son image, son titre, son prix et un bouton pour l’ajouter au panier
 
 class Livre {
+    #conteneurHTML;
+    #image;
+    #titre;
+    #prix;
+    #elementHTML;
 
     constructor (conteneurHTML, image, titre, prix) {
-        this._conteneurHTML = conteneurHTML;
-        this._image = image;
-        this._titre = titre;
-        this._prix = prix;
-        this._elementHTML = null;
+        this.#conteneurHTML = conteneurHTML;
+        this.#image = image;
+        this.#titre = titre;
+        this.#prix = prix;
+        this.#elementHTML = null;
+    }
+
+    // Getters et Setters
+
+    get image() {
+        return this.#image;
+    }
+
+    set image(nouvelleImage) {
+        this.#image = nouvelleImage;
+        this.#image.querySelector(".tuile_image").src = this.#image;
+    }
+
+    get titre() {
+        return this.#titre;
+    }
+
+    set titre(nouveauTitre) {
+        this.#titre = nouveauTitre;
+        this.#elementHTML.querySelector(".tuile_titre").textContent = this.#titre;
+    }
+
+    get prix() {
+        return this.#prix;
+    }
+
+    set prix(nouveauPrix) {
+        this.#prix = nouveauPrix;
+        this.#elementHTML.querySelector(".tuile_prix").textContent = `${this.#prix}$`;
+    }
+
+    get conteneurHTML() {
+        return this.#conteneurHTML;
+    }
+
+    set conteneurHTML(nouveauConteneur) {
+        this.#conteneurHTML = nouveauConteneur;
+    }
+
+    get elementHTML() {
+        return this.#elementHTML;
+    }
+
+    set elementHTML(nouvelElement) {
+        this.#elementHTML = nouvelElement;
     }
 
     // Évenements
@@ -31,19 +81,19 @@ class Livre {
         const gabarit = 
         `
         <div class="tuile">
-            <img src="${this._image}">
-            <h3>${this._titre}</h3>
-            <p>${this._prix}$</p>
-            <button>Ajouter</button>
+            <img class="tuile_image" src="${this.#image}">
+            <h3 class="tuile_titre">${this.#titre}</h3>
+            <p class="tuile_prix">${this.#prix}$</p>
+            <button class="tuile_bouton">Ajouter</button>
         </div>
         `;
 
-        this._conteneurHTML.insertAdjacentHTML("beforeend", gabarit);
-        this._elementHTML = this._conteneurHTML.lastElementChild;
+        this.#conteneurHTML.insertAdjacentHTML("beforeend", gabarit);
+        this.#elementHTML = this.#conteneurHTML.lastElementChild;
 
         // Écouteurs d'événement pour que la tuile soit clicable pour ouvrir la modale
         
-        this._elementHTML.addEventListener("click", this._clickTuile.bind(this));
+        this.#elementHTML.addEventListener("click", this._clickTuile.bind(this));
         }
 }
 
