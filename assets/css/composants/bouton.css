@@ -1,0 +1,11 @@
+button {
+    background-color: var(--couleur-secondaire);
+    color: var(--couleur-primaire);
+    border: 2px solid var(--couleur-texte);
+    cursor: pointer;
+    padding: 5px;
+}
+
+button:hover {
+    background-color: var(--couleur-texte);
+}

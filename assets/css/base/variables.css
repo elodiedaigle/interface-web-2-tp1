@@ -1,0 +1,22 @@
+:root {
+    --police-titre: "Oranienbaum", "serif";
+    --police-corps: "Montserrat", "sans-serif";
+
+    /* J'ai repris ceux des notes de cours pour commencer et ajuster au besoin */
+    --police-taille-sm: 0.875rem;
+    --police-taille-md: 1rem;
+    --police-taille-lg: 1.25rem;
+    --police-taille-xl: 1.5rem;
+
+    --espace-sm: 0.5rem;
+    --espace-md: 1rem;
+    --espace-lg: 1.5rem;
+    --espace-xl: 2rem;
+
+    --couleur-primaire: #FBF3F2;
+    --couleur-secondaire: #1C768F;
+    --couleur-tertiaire: #E7E5E5;
+    --couleur-texte: #032539;
+    --couleur-accent: #FA991C;
+
+}

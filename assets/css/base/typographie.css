@@ -1,0 +1,13 @@
+body {
+    font-family: var(--police-corps);
+    font-size: var(--police-taille-md);
+    background-color: var(--couleur-primaire);
+}
+
+/* Ajouter h1 et h1 plus tard quand je serai rendu à LivreModale */
+
+h3 {
+    font-size: var(--police-taille-md);
+    font-weight: bold;
+    margin-bottom: var(--espace-md);
+}
