@@ -9,18 +9,26 @@ class Livre {
         this._image = image;
         this._titre = titre;
         this._prix = prix;
+        this._elementHTML = null;
     }
 
     creerTuile() {
-        // À faire plus tard
+        this._injecterHTML();
     }
 
-    // Permet d'injecter le gabarit de la tuile 
+    _injecterHTML() {
+        const gabarit = 
+        `
+        <div class="tuile">
+            <img src="${this._image}">
+            <h3>${this._titre}</h3>
+            <p>${this._prix}</p>
+            <bouton>Ajouter</bouton>
+        </div>
+        `;
 
-    #injecterHTML() {
-        const gabarit = `
-        
-        ` // À faire plus tard
+        this._conteneurHTML.insertAdjecentHTML("beforeend", gabarit);
+        this._elementHTML = this._conteneurHTML.lastElementChild;
     }
     
 }
