@@ -27,7 +27,7 @@ class Livre {
         </div>
         `;
 
-        this._conteneurHTML.insertAdjecentHTML("beforeend", gabarit);
+        this._conteneurHTML.insertAdjacentHTML("beforeend", gabarit);
         this._elementHTML = this._conteneurHTML.lastElementChild;
     }
     
