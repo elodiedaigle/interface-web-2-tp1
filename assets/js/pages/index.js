@@ -19,9 +19,7 @@ function initialiser() {
     );
     item.creerTuile();
 
-    console.log("init…");
     item.elementHTML.addEventListener("click", () => {
-        console.log("tuile cliquée:", livreInfo.titre);
         const modale = new LivreModale(
             conteneurModale,
             livreInfo.image,

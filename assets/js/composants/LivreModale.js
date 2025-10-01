@@ -14,6 +14,9 @@ class LivreModale extends Livre {
         this.#editeur = editeur;
         this.#pages = pages;
         this.#description = description;
+
+        this._clickModale = this._clickModale.bind(this);
+        this.fermer = this.fermer.bind(this);
     }
 
     // Sert à ouvrir la boite modale et injecter son contenu
@@ -42,7 +45,9 @@ class LivreModale extends Livre {
 
         this.afficher();
 
-        this.elementHTML.querySelector(".fermer").addEventListener("click", this.fermer.bind(this));
+        // Modif pour que toute la boite soit clicable, bouton inclus, mais pas juste le bouton
+        this.elementHTML.addEventListener("click", this._clickModale);
+        this.elementHTML.querySelector(".fermer").addEventListener("click", this.fermer);
     }
 
     // Sert à afficher la modale et bloquer le défilement
@@ -53,11 +58,20 @@ class LivreModale extends Livre {
         document.body.classList.add("modale-verrou");
     }
 
-    // Sert à fermer la modale et réactiver le défilement
+    // Sert à fermer la modale, faire le ménage des clicks et réactiver le défilement
 
     fermer() {
+        if (this.elementHTML) {
+            this.elementHTML.removeEventListener("click", this._clickModale);
+            this.elementHTML.querySelector(".fermer").removeEventListener("click", this.fermer);
+        }
+
       this.conteneurHTML.classList.add("invisible");
       document.body.classList.remove("modale-verrou");  
+    }
+
+    _clickModale() {
+        this.fermer();
     }
 
 }
