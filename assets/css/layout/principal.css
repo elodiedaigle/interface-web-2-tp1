@@ -1,0 +1,23 @@
+body {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    column-gap: var(--espace-xl);
+    background: var(--couleur-primaire);
+    color: var(--couleur-texte);
+}
+
+nav[data-filtres] { 
+    padding: var(--espace-xl) var(--espace-xl) 0 var(--espace-xl); 
+}
+
+main[data-boite-livre] { 
+    padding: var(--espace-xl) var(--espace-xl) var(--espace-xl) 0;
+}
+
+footer {
+    grid-column: 1 / -1; 
+    padding: var(--espace-xl); 
+    background-color: var(--couleur-secondaire);
+    color: var(--couleur-primaire);
+}

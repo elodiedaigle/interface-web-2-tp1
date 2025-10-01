@@ -8,9 +8,11 @@
 @import url("./base/typographie.css");
 
 /* Composants */
+@import url("./composants/filtres.css");
 @import url("./composants/modale.css");
 @import url("./composants/images.css");
 @import url("./composants/bouton.css");
 
 /* Layout */
+@import url("./layout/principal.css");
 @import url("./layout/grille.css");

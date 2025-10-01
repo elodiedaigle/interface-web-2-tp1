@@ -1,15 +1,20 @@
-import Livre from "./Livre.js";
+// J'ai complètement buguée rendue à Filtre et Application, c'est peut-être pas la solution optimale de ne pas lier Livre et LivreModale, mais je manque de temps et je dois trouver une solution qui fonctionne
 
 // Sert de template pour la boite modale d'un livre
-class LivreModale extends Livre {
+class LivreModale {
+    #conteneurHTML;
+    #image;
+    #titre;
     #auteur;
     #editeur;
     #pages;
     #description;
+    #elementHTML;
 
-    constructor(conteneurHTML, image, titre, prix, auteur, editeur, pages, description) {
-        super(conteneurHTML, image, titre, prix);
-        // Ajoute les informations montrées dans la maquette
+    constructor(conteneurHTML, image, titre, auteur, editeur, pages, description) {
+        this.#conteneurHTML = conteneurHTML;
+        this.#image = image;
+        this.#titre = titre;
         this.#auteur = auteur;
         this.#editeur = editeur;
         this.#pages = pages;
@@ -19,22 +24,94 @@ class LivreModale extends Livre {
         this.fermer = this.fermer.bind(this);
     }
 
+    // Getters et Setters
+
+    get image() {
+        return this.#image;
+    }
+
+    set image(nouvelleImage) {
+        this.#image = nouvelleImage;
+        this.#image.querySelector(".modale_image").src = this.#image;
+    }
+
+    get titre() {
+        return this.#titre;
+    }
+
+    set titre(nouveauTitre) {
+        this.#titre = nouveauTitre;
+        this.#elementHTML.querySelector(".modale_titre").textContent = this.#titre;
+    }
+
+    get auteur() {
+        return this.#auteur;
+    }
+
+    set auteur(nouvelAuteur) {
+        this.#auteur = nouvelAuteur;
+        this.#elementHTML.querySelector(".modale_auteur").textContent = this.#auteur;
+    }
+
+    get editeur() {
+        return this.#editeur;
+    }
+
+    set editeur(nouvelEditeur) {
+        this.#editeur = nouvelEditeur;
+        this.#elementHTML.querySelector(".modale_editeur").textContent = this.#editeur;
+    }
+
+    get pages() {
+        return this.#pages;
+    }
+
+    set pages(nouvellePages) {
+        this.#pages = nouvellePages;
+        this.#elementHTML.querySelector(".modale_pages").textContent = this.#pages;
+    }
+
+    get description() {
+        return this.#description;
+    }
+
+    set description(nouvelleDescription) {
+        this.#description = nouvelleDescription;
+        this.#elementHTML.querySelector(".modale_description").textContent = this.#description;
+    }
+
+    get conteneurHTML() {
+        return this.#conteneurHTML;
+    }
+
+    set conteneurHTML(nouveauConteneur) {
+        this.#conteneurHTML = nouveauConteneur;
+    }
+
+    get elementHTML() {
+        return this.#elementHTML;
+    }
+
+    set elementHTML(nouvelElement) {
+        this.#elementHTML = nouvelElement;
+    }
+
     // Sert à ouvrir la boite modale et injecter son contenu
     ouvrir() {
         const gabarit = `
             <div class="modale">
                 <header>
-                    <h2>${this.titre}</h2>
+                    <h2 class="modale_titre">${this.titre}</h2>
                     <button class="fermer">X</button>
                 </header>
 
                 <div class="information">
-                    <img src="${this.image}">
+                    <img class="modale_image" src="${this.image}">
                     <div class="info">
-                        <p>Auteur : ${this.#auteur}</p>
-                        <p>Éditeur : ${this.#editeur}</p>
-                        <p>Pages : ${this.#pages}</p>
-                        <p>${this.#description}</p>
+                        <p class="modale_auteur">Auteur : ${this.#auteur}</p>
+                        <p class="modale_editeur">Éditeur : ${this.#editeur}</p>
+                        <p class="modale_pages">Pages : ${this.#pages}</p>
+                        <p class="modale_description">${this.#description}</p>
                     </div>
                 </div>
             </div>

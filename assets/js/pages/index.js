@@ -1,38 +1,9 @@
-import livres from "../data/livres.js";
-import Livre from "../composants/Livre.js";
-import LivreModale from "../composants/LivreModale.js";
-import Filtre from "../composants/Filtre.js";
+// Beaucoup de changement suite à l'idée d'utiliser application last minute comme on a vu
+import Application from "../composants/Application.js";
 
-// Sert à sélectionner les conteneurs
-
-const conteneurLivre = document.querySelector("[data-boite-livre]");
-const conteneurModale = document.querySelector("[data-modale]");
-
-// Fonction pour la création de toutes les tuiles
+// Fonctions
 function initialiser() {
-    livres.forEach((livreInfo) => {
-        const item = new Livre(
-        conteneurLivre,
-        livreInfo.image,
-        livreInfo.titre,
-        livreInfo.prix,
-    );
-    item.creerTuile();
-
-    item.elementHTML.addEventListener("click", () => {
-        const modale = new LivreModale(
-            conteneurModale,
-            livreInfo.image,
-            livreInfo.titre,
-            livreInfo.prix,
-            livreInfo.auteur,
-            livreInfo.editeur,
-            livreInfo.pages,
-            livreInfo.description,
-        );
-        modale.ouvrir();
-        });
-    });
+    const application = new Application();
 }
 
 // Exécution

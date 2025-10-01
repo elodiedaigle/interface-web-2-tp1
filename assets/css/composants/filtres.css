@@ -1,0 +1,19 @@
+.filtres {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espace-sm);
+    position: sticky;
+    top: var(--espace-xl);
+}
+
+.filtre {
+    cursor: pointer;
+    color:  var(--couleur-texte);
+    padding: var(--espace-sm);
+}
+
+
+.filtre.actif {
+    background-color: var(--couleur-accent);
+    border-radius: 5px;
+}
