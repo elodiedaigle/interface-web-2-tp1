@@ -1,0 +1,88 @@
+.modale-verrou {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+[data-modale] {
+  position: fixed;
+  z-index: 5000;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.386);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modale {
+  position: relative;
+  background-color: var(--couleur-primaire);
+  color: var(--couleur-texte);
+  border-radius: 5px;
+  width: min(900px, 95vw);
+  max-height: 90vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  padding: var(--espace-xl);
+}
+
+.modale header {
+  position: relative;
+  padding-right: 3.25rem;
+  gap: .75rem;
+  align-items: flex-start;
+}
+
+.modale header h2 {
+  margin: 0;
+  line-height: 1.2;
+  margin-bottom: var(--espace-xl);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.modale header .fermer {
+  position: absolute;
+  top: 0; 
+  right: 0;
+  margin: 0;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modale .information {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  column-gap: var(--espace-lg);
+  row-gap: var(--espace-md);
+  align-items: start;
+}
+
+.modale .information .info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-md);
+}
+.modale .information .info p { 
+    margin: 0; }
+
+.modale .information img {
+  width: 100%;
+  height: auto;
+  max-width: 320px;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+[data-modale].invisible { display: none; }

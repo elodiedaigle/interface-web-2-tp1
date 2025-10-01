@@ -3,20 +3,37 @@ import Livre from "../composants/Livre.js";
 import LivreModale from "../composants/LivreModale.js";
 import Filtre from "../composants/Filtre.js";
 
-// Sert à sélectionner le conteneur
+// Sert à sélectionner les conteneurs
 
-const conteneur = document.querySelector("[data-boite-livre]");
+const conteneurLivre = document.querySelector("[data-boite-livre]");
+const conteneurModale = document.querySelector("[data-modale]");
 
 // Fonction pour la création de toutes les tuiles
 function initialiser() {
     livres.forEach((livreInfo) => {
         const item = new Livre(
-        conteneur,
+        conteneurLivre,
         livreInfo.image,
         livreInfo.titre,
         livreInfo.prix,
     );
     item.creerTuile();
+
+    console.log("init…");
+    item.elementHTML.addEventListener("click", () => {
+        console.log("tuile cliquée:", livreInfo.titre);
+        const modale = new LivreModale(
+            conteneurModale,
+            livreInfo.image,
+            livreInfo.titre,
+            livreInfo.prix,
+            livreInfo.auteur,
+            livreInfo.editeur,
+            livreInfo.pages,
+            livreInfo.description,
+        );
+        modale.ouvrir();
+        });
     });
 }
 

@@ -26,29 +26,40 @@ class LivreModale extends Livre {
                 </header>
 
                 <div class="information">
-                    <img src="${this.image}>
-                    <p>Auteur : ${this.#auteur}</p>
-                    <p>Éditeur : ${this.#editeur}</p>
-                    <p>Pages : ${this.#pages}</p>
-                    <p>${this.#description}</p>
+                    <img src="${this.image}">
+                    <div class="info">
+                        <p>Auteur : ${this.#auteur}</p>
+                        <p>Éditeur : ${this.#editeur}</p>
+                        <p>Pages : ${this.#pages}</p>
+                        <p>${this.#description}</p>
+                    </div>
                 </div>
             </div>
         `;
 
         this.conteneurHTML.innerHTML = gabarit;
-        this.elementHTML = this.conteneurHTML.firstElementChild;
+        this.elementHTML = this.conteneurHTML.querySelector(".modale");
 
-        this.bloquerDefilement();
+        this.afficher();
+
+        this.elementHTML.querySelector(".fermer").addEventListener("click", this.fermer.bind(this));
     }
 
-    // Sert à fermer la tuile
+    // Sert à afficher la modale et bloquer le défilement
+
+    afficher() {
+        this.conteneurHTML.classList.remove("invisible");
+        // Comme vu en classe au lieu de empecherDefilement comme je pensais avoir besoin au départ
+        document.body.classList.add("modale-verrou");
+    }
+
+    // Sert à fermer la modale et réactiver le défilement
+
     fermer() {
-        // À faire plus tard
+      this.conteneurHTML.classList.add("invisible");
+      document.body.classList.remove("modale-verrou");  
     }
 
-    bloquerDefilement() {
-    
-    }
 }
 
 export default LivreModale;

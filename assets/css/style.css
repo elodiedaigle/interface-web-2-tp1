@@ -8,6 +8,7 @@
 @import url("./base/typographie.css");
 
 /* Composants */
+@import url("./composants/modale.css");
 @import url("./composants/images.css");
 @import url("./composants/bouton.css");
 
